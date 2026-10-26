@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CozyLoop Crochet | Handcrafted Warmth & Yarn Creations</title>
+    <title>Ayushi Collection | Handcrafted Warmth & Yarn Creations</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts: Playfair Display & Plus Jakarta Sans -->
@@ -79,7 +79,7 @@
                     <i class="fa-solid fa-cookie-bite"></i>
                 </div>
                 <div>
-                    <span class="font-serif text-2xl font-bold tracking-tight text-yarn block leading-tight">CozyLoop</span>
+                    <span class="font-serif text-2xl font-bold tracking-tight text-yarn block leading-tight">Ayushi Collection</span>
                     <span class="text-[10px] tracking-[0.2em] uppercase text-terracotta font-semibold">Handcrafted Studio</span>
                 </div>
             </a>
@@ -111,7 +111,7 @@
         <div id="search-bar" class="hidden border-t border-almond/30 bg-cream-100 px-4 py-3">
             <div class="max-w-2xl mx-auto flex items-center gap-3">
                 <i class="fa-solid fa-magnifying-glass text-cappuccino"></i>
-                <input id="search-input" onkeyup="filterBySearch()" type="text" placeholder="Search plushies, bucket hats, cardigans..." class="w-full bg-transparent outline-none text-sm placeholder:text-cappuccino/60 text-yarn">
+                <input id="search-input" onkeyup="filterBySearch()" type="text" placeholder="Search shubh labh, glasses cover, payal, earbud cover..." class="w-full bg-transparent outline-none text-sm placeholder:text-cappuccino/60 text-yarn">
                 <button onclick="clearSearch()" class="text-xs text-cappuccino hover:text-terracotta"><i class="fa-solid fa-xmark text-sm"></i></button>
             </div>
         </div>
@@ -164,8 +164,8 @@
                         <div class="absolute inset-0 bg-gradient-to-t from-yarn/60 via-transparent to-transparent"></div>
                         <div class="absolute bottom-6 left-6 right-6 p-4 rounded-2xl bg-cream/90 backdrop-blur-md border border-white/60 shadow-lg text-left">
                             <span class="text-xs font-semibold uppercase tracking-wider text-terracotta">Featured Creation</span>
-                            <h4 class="font-serif font-bold text-yarn text-base">The Sunflower Tote Bag</h4>
-                            <p class="text-xs text-cappuccino">Hand-knotted with natural unbleached cotton cord.</p>
+                            <h4 class="font-serif font-bold text-yarn text-base">Shubh Labh Hanging Set</h4>
+                            <p class="text-xs text-cappuccino">Hand-knotted with festive threads, auspicious motifs & golden pearls.</p>
                         </div>
                     </div>
                     <!-- Floating Badge -->
@@ -193,14 +193,12 @@
             <!-- Category Filter Tabs -->
             <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-10" id="category-tabs">
                 <button onclick="filterCategory('all')" class="cat-btn active px-5 py-2 rounded-full text-sm font-medium transition-all bg-terracotta text-white shadow-sm" data-category="all">All Items</button>
-                <button onclick="filterCategory('Amigurumi')" class="cat-btn px-5 py-2 rounded-full text-sm font-medium transition-all bg-cream-100 text-cappuccino hover:bg-almond/40" data-category="Amigurumi">Amigurumi Plush</button>
-                <button onclick="filterCategory('Apparel')" class="cat-btn px-5 py-2 rounded-full text-sm font-medium transition-all bg-cream-100 text-cappuccino hover:bg-almond/40" data-category="Apparel">Wearables</button>
+                <button onclick="filterCategory('Home Decor')" class="cat-btn px-5 py-2 rounded-full text-sm font-medium transition-all bg-cream-100 text-cappuccino hover:bg-almond/40" data-category="Home Decor">Home & Festive Decor</button>
                 <button onclick="filterCategory('Accessories')" class="cat-btn px-5 py-2 rounded-full text-sm font-medium transition-all bg-cream-100 text-cappuccino hover:bg-almond/40" data-category="Accessories">Accessories</button>
-                <button onclick="filterCategory('Home')" class="cat-btn px-5 py-2 rounded-full text-sm font-medium transition-all bg-cream-100 text-cappuccino hover:bg-almond/40" data-category="Home">Home Decor</button>
             </div>
 
             <!-- Product Grid -->
-            <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-8">
+            <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
                 <!-- Injected via JavaScript -->
             </div>
             
@@ -336,7 +334,7 @@
     <footer class="bg-yarn text-cream-100 py-14">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-10">
             <div class="space-y-4 md:col-span-1">
-                <span class="font-serif text-2xl font-bold tracking-tight text-cream">CozyLoop</span>
+                <span class="font-serif text-2xl font-bold tracking-tight text-cream">Ayushi Collection</span>
                 <p class="text-xs text-almond/80 leading-relaxed">
                     Celebrating deliberate handcraft, mindful stitches, and warmth that lasts generations.
                 </p>
@@ -350,10 +348,9 @@
             <div>
                 <h4 class="text-xs font-bold uppercase tracking-widest text-terracotta mb-4">Shop Collections</h4>
                 <ul class="text-xs space-y-2 text-almond/80">
-                    <li><a href="#catalog" onclick="filterCategory('Amigurumi')" class="hover:text-cream">Amigurumi Plushies</a></li>
-                    <li><a href="#catalog" onclick="filterCategory('Apparel')" class="hover:text-cream">Cardigans & Sweaters</a></li>
-                    <li><a href="#catalog" onclick="filterCategory('Accessories')" class="hover:text-cream">Totes & Bucket Hats</a></li>
-                    <li><a href="#catalog" onclick="filterCategory('Home')" class="hover:text-cream">Blankets & Coasters</a></li>
+                    <li><a href="#catalog" onclick="filterCategory('all')" class="hover:text-cream">All Handmade Items</a></li>
+                    <li><a href="#catalog" onclick="filterCategory('Home Decor')" class="hover:text-cream">Shubh Labh & Home Decor</a></li>
+                    <li><a href="#catalog" onclick="filterCategory('Accessories')" class="hover:text-cream">Accessories, Payal & Covers</a></li>
                 </ul>
             </div>
 
@@ -378,7 +375,7 @@
         </div>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 pt-6 border-t border-almond/10 text-center text-xs text-almond/60">
-            &copy; 2026 CozyLoop Crochet Studio. Handcrafted with love & yarn.
+            &copy; 2026 Ayushi Collection. Handcrafted with love & yarn.
         </div>
     </footer>
 
@@ -455,6 +452,13 @@
                         <span id="modal-tag" class="text-[10px] uppercase font-bold tracking-widest px-2.5 py-1 rounded-full bg-sage-light text-sage-dark inline-block"></span>
                         <h3 id="modal-title" class="font-serif text-2xl font-bold text-yarn"></h3>
                         <p id="modal-price" class="text-xl font-bold text-terracotta"></p>
+                        
+                        <!-- Options container for pack sizes (e.g. Set of 2 & Set of 6) -->
+                        <div id="modal-options-container" class="hidden">
+                            <label class="text-xs font-semibold text-yarn block mb-1.5">Select Option / Set Size:</label>
+                            <div id="modal-options" class="flex flex-wrap gap-2"></div>
+                        </div>
+
                         <p id="modal-desc" class="text-xs text-cappuccino leading-relaxed"></p>
                         
                         <div class="pt-3 border-t border-almond/30 space-y-2 text-xs text-cappuccino">
@@ -481,101 +485,85 @@
 
     <!-- Application Script -->
     <script>
-        // Product Catalog Data
+        // Product Catalog Data - Ayushi Collection (6 Handcrafted Items)
         const products = [
             {
                 id: 1,
-                name: "Sprout Frog Amigurumi",
-                category: "Amigurumi",
-                price: 28.00,
-                rating: 4.9,
-                reviews: 42,
-                image: "https://images.unsplash.com/photo-1598460880291-c4237191df99?auto=format&fit=crop&w=700&q=80",
-                desc: "A plump, palm-sized forest frog wearing a removable sprout leaf hat. Stuffed with hypoallergenic corn-fiber filling.",
-                fiber: "100% Milk Cotton Yarn"
+                name: "Shubh Labh Hanging (Set of 2 & 6)",
+                category: "Home Decor",
+                pack: "Set of 2 & 6 Available",
+                price: 18.00,
+                rating: 5.0,
+                reviews: 48,
+                image: "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=700&q=80",
+                desc: "Auspicious handcrafted crochet Shubh Labh hanging adorned with festive vibrant colors, golden zari accents, pearl beads, and soft yarn tassels. Available in Set of 2 (main doors) or Set of 6 (complete home entrance).",
+                fiber: "100% Cotton Yarn, Golden Zari & Pearls",
+                options: [
+                    { name: "Set of 2", price: 18.00 },
+                    { name: "Set of 6", price: 45.00 }
+                ]
             },
             {
                 id: 2,
-                name: "Sunflower Granny Square Tote",
+                name: "Woolen Glasses Cover",
                 category: "Accessories",
-                price: 52.00,
-                rating: 5.0,
-                reviews: 88,
+                price: 14.00,
+                rating: 4.9,
+                reviews: 36,
                 image: "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&w=700&q=80",
-                desc: "13 individually hand-stitched floral granny squares, joined and lined with organic muslin cotton fabric.",
-                fiber: "Unbleached Recycled Cotton"
+                desc: "Soft woolen sleeve pouch crafted with cushioned stitches to protect spectacles and sunglasses from scratches. Finished with a neat wooden button closure.",
+                fiber: "100% Pure Wool with Soft Inner Felt"
             },
             {
                 id: 3,
-                name: "Oatmeal Cable Cardigan",
-                category: "Apparel",
-                price: 115.00,
+                name: "Woolen Payal (Crochet Anklet)",
+                category: "Accessories",
+                price: 12.00,
                 rating: 4.8,
-                reviews: 19,
-                image: "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?auto=format&fit=crop&w=700&q=80",
-                desc: "Chunky oversized cardigan featuring vintage textured cables and real coconut-shell buttons. Cloud-like softness.",
-                fiber: "Merino Wool & Alpaca Blend"
+                reviews: 29,
+                image: "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?auto=format&fit=crop&w=700&q=80",
+                desc: "Intricately crocheted woolen payal (pair) adorned with tinkling mini brass ghungroo bells and colorful threads. Gentle, lightweight, and stylish for everyday or festive wear.",
+                fiber: "Soft Wool Yarn & Brass Ghungroo Bells"
             },
             {
                 id: 4,
-                name: "Matcha Checkered Bucket Hat",
+                name: "Crochet Earbud Cover",
                 category: "Accessories",
-                price: 34.00,
+                price: 10.00,
                 rating: 4.9,
-                reviews: 64,
+                reviews: 54,
                 image: "https://images.unsplash.com/photo-1576871337632-b9aef4c17ab9?auto=format&fit=crop&w=700&q=80",
-                desc: "Playful two-tone checkered bucket hat engineered with a sturdy brim that stays in shape all day.",
-                fiber: "100% Combed Cotton"
+                desc: "Handcrafted snug crochet case designed to safeguard wireless earbuds and AirPods. Includes bottom charging cut-out and an anti-drop strap loop.",
+                fiber: "100% Milk Cotton Yarn"
             },
             {
                 id: 5,
-                name: "Sleeping Bear Snuggler",
-                category: "Amigurumi",
-                price: 36.00,
-                rating: 5.0,
-                reviews: 31,
-                image: "https://images.unsplash.com/photo-1559454403-b8fb88521f11?auto=format&fit=crop&w=700&q=80",
-                desc: "An unstuffed blanket-body snuggler toy that is gentle on tender skin. Embroidered safety eyes.",
-                fiber: "Organic Chenille Velvet Yarn"
+                name: "Crochet Photo Frame Cover",
+                category: "Home Decor",
+                price: 19.00,
+                rating: 4.9,
+                reviews: 22,
+                image: "https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=700&q=80",
+                desc: "Vintage decorative crochet lace frame slipcover that wraps tabletop picture frames in delicate floral scalloped borders and warm artisan texture.",
+                fiber: "Combed Mercerized Cotton"
             },
             {
                 id: 6,
-                name: "Waffle Stitch Throw Blanket",
-                category: "Home",
-                price: 88.00,
-                rating: 4.7,
-                reviews: 15,
-                image: "https://images.unsplash.com/photo-1580301762395-21ce84d00bc6?auto=format&fit=crop&w=700&q=80",
-                desc: "Heavyweight textured waffle knit throw that adds instant tactile hygge to any armchair or reading nook.",
-                fiber: "100% Eco-Spun Acrylic Wool"
-            },
-            {
-                id: 7,
-                name: "Blooming Daisy Coaster Set (4x)",
-                category: "Home",
-                price: 22.00,
-                rating: 4.9,
-                reviews: 73,
-                image: "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=700&q=80",
-                desc: "Set of 4 absorbent floral mug mats that safeguard wooden tables from tea drips and warm mugs.",
-                fiber: "Absorbent Cotton Yarn"
-            },
-            {
-                id: 8,
-                name: "Pastel Lavender Cropped Vest",
-                category: "Apparel",
-                price: 68.00,
-                rating: 4.8,
-                reviews: 27,
-                image: "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?auto=format&fit=crop&w=700&q=80",
-                desc: "A lightweight transitional vest featuring scallop hem details. Perfect for layering over white collared shirts.",
-                fiber: "Bamboo & Cotton Blend"
+                name: "Crochet Fridge Magnet",
+                category: "Home Decor",
+                price: 8.00,
+                rating: 5.0,
+                reviews: 63,
+                image: "https://images.unsplash.com/photo-1598460880291-c4237191df99?auto=format&fit=crop&w=700&q=80",
+                desc: "Delightful mini hand-crocheted botanical fridge magnet with embedded heavy-duty neodymium backing. Adds cheerful handmade warmth to any metal surface.",
+                fiber: "100% Cotton Yarn & Neodymium Magnet"
             }
         ];
 
         // State Management
         let cart = [];
         let activeCategory = 'all';
+        let activeQuickViewOption = null;
 
         // Initialize application on page load
         window.onload = function() {
@@ -604,6 +592,10 @@
                         <span class="absolute top-3 left-3 bg-cream/90 backdrop-blur-sm text-yarn text-[11px] font-bold px-2.5 py-1 rounded-full border border-almond/40">
                             ${product.category}
                         </span>
+                        ${product.pack ? `
+                        <span class="absolute top-3 right-3 bg-terracotta text-white text-[10px] font-semibold px-2.5 py-0.5 rounded-full shadow-sm">
+                            ${product.pack}
+                        </span>` : ''}
                         <!-- Quick View Button -->
                         <button onclick="openQuickView(${product.id})" class="absolute bottom-3 right-3 bg-white/90 hover:bg-white text-yarn text-xs font-medium px-3 py-1.5 rounded-full shadow-md backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity">
                             <i class="fa-regular fa-eye mr-1"></i> Quick View
@@ -641,7 +633,7 @@
             
             // Highlight buttons
             document.querySelectorAll('.cat-btn').forEach(btn => {
-                if (btn.getAttribute('data-category') === cat) {
+                if (btn.getAttribute('data-category').toLowerCase() === cat.toLowerCase()) {
                     btn.className = "cat-btn active px-5 py-2 rounded-full text-sm font-medium transition-all bg-terracotta text-white shadow-sm";
                 } else {
                     btn.className = "cat-btn px-5 py-2 rounded-full text-sm font-medium transition-all bg-cream-100 text-cappuccino hover:bg-almond/40";
@@ -690,13 +682,42 @@
             document.getElementById('modal-img').alt = p.name;
             document.getElementById('modal-title').textContent = p.name;
             document.getElementById('modal-tag').textContent = p.category;
-            document.getElementById('modal-price').textContent = `$${p.price.toFixed(2)}`;
             document.getElementById('modal-desc').textContent = p.desc;
             document.getElementById('modal-fiber').textContent = p.fiber;
 
+            const optContainer = document.getElementById('modal-options-container');
+            const optList = document.getElementById('modal-options');
+
+            if (p.options && p.options.length > 0) {
+                optContainer.classList.remove('hidden');
+                optList.innerHTML = '';
+                activeQuickViewOption = p.options[0];
+                document.getElementById('modal-price').textContent = `$${activeQuickViewOption.price.toFixed(2)}`;
+
+                p.options.forEach((opt, idx) => {
+                    const btn = document.createElement('button');
+                    btn.type = 'button';
+                    btn.className = `px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all border ${idx === 0 ? 'bg-terracotta text-white border-terracotta shadow-xs' : 'bg-white text-yarn border-almond/60 hover:border-terracotta'}`;
+                    btn.textContent = `${opt.name} — $${opt.price.toFixed(2)}`;
+                    btn.onclick = () => {
+                        activeQuickViewOption = opt;
+                        document.getElementById('modal-price').textContent = `$${opt.price.toFixed(2)}`;
+                        Array.from(optList.children).forEach(b => {
+                            b.className = "px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all border bg-white text-yarn border-almond/60 hover:border-terracotta";
+                        });
+                        btn.className = "px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all border bg-terracotta text-white border-terracotta shadow-xs";
+                    };
+                    optList.appendChild(btn);
+                });
+            } else {
+                activeQuickViewOption = null;
+                optContainer.classList.add('hidden');
+                document.getElementById('modal-price').textContent = `$${p.price.toFixed(2)}`;
+            }
+
             const addBtn = document.getElementById('modal-add-btn');
             addBtn.onclick = () => {
-                addToCart(p.id);
+                addToCart(p.id, activeQuickViewOption);
                 closeQuickView();
             };
 
@@ -738,34 +759,48 @@
             }
         }
 
-        function addToCart(productId) {
+        function addToCart(productId, selectedOption = null) {
             const item = products.find(p => p.id === productId);
-            const existing = cart.find(ci => ci.id === productId);
+            if (!item) return;
+
+            const opt = selectedOption || (item.options ? item.options[0] : null);
+            const cartKey = opt ? `${item.id}-${opt.name}` : `${item.id}`;
+            const itemPrice = opt ? opt.price : item.price;
+            const displayName = opt ? `${item.name} (${opt.name})` : item.name;
+
+            const existing = cart.find(ci => ci.cartKey === cartKey);
 
             if (existing) {
                 existing.quantity += 1;
             } else {
-                cart.push({ ...item, quantity: 1 });
+                cart.push({
+                    id: item.id,
+                    cartKey: cartKey,
+                    name: displayName,
+                    price: itemPrice,
+                    image: item.image,
+                    quantity: 1
+                });
             }
 
             updateCartUI();
-            showToast(`Added "${item.name}" to basket!`);
+            showToast(`Added "${displayName}" to basket!`);
         }
 
-        function updateQuantity(productId, delta) {
-            const existing = cart.find(ci => ci.id === productId);
+        function updateQuantity(cartKey, delta) {
+            const existing = cart.find(ci => ci.cartKey == cartKey);
             if (!existing) return;
 
             existing.quantity += delta;
             if (existing.quantity <= 0) {
-                cart = cart.filter(ci => ci.id !== productId);
+                cart = cart.filter(ci => ci.cartKey != cartKey);
             }
 
             updateCartUI();
         }
 
-        function removeFromCart(productId) {
-            cart = cart.filter(ci => ci.id !== productId);
+        function removeFromCart(cartKey) {
+            cart = cart.filter(ci => ci.cartKey != cartKey);
             updateCartUI();
         }
 
@@ -809,14 +844,14 @@
                                 <h4 class="font-serif font-bold text-xs text-yarn">${item.name}</h4>
                                 <span class="text-[11px] text-terracotta font-semibold">$${item.price.toFixed(2)}</span>
                             </div>
-                            <button onclick="removeFromCart(${item.id})" class="text-cappuccino/60 hover:text-terracotta text-xs">
+                            <button onclick="removeFromCart('${item.cartKey}')" class="text-cappuccino/60 hover:text-terracotta text-xs">
                                 <i class="fa-solid fa-trash-can"></i>
                             </button>
                         </div>
                         <div class="flex items-center gap-2 mt-2">
-                            <button onclick="updateQuantity(${item.id}, -1)" class="w-6 h-6 rounded-md bg-cream-100 flex items-center justify-center text-xs text-yarn hover:bg-almond/50 font-bold">-</button>
+                            <button onclick="updateQuantity('${item.cartKey}', -1)" class="w-6 h-6 rounded-md bg-cream-100 flex items-center justify-center text-xs text-yarn hover:bg-almond/50 font-bold">-</button>
                             <span class="text-xs font-semibold px-2">${item.quantity}</span>
-                            <button onclick="updateQuantity(${item.id}, 1)" class="w-6 h-6 rounded-md bg-cream-100 flex items-center justify-center text-xs text-yarn hover:bg-almond/50 font-bold">+</button>
+                            <button onclick="updateQuantity('${item.cartKey}', 1)" class="w-6 h-6 rounded-md bg-cream-100 flex items-center justify-center text-xs text-yarn hover:bg-almond/50 font-bold">+</button>
                             <span class="text-xs font-bold text-yarn ml-auto">$${itemTotal.toFixed(2)}</span>
                         </div>
                     </div>
