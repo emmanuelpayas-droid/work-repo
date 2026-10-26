@@ -574,7 +574,9 @@
                 <!-- Cart Footer & Checkout -->
                 <div id="cart-footer" class="p-6 border-t border-amber-200 bg-amber-50/70 space-y-4">
                     <!-- Coupon Input Box -->
-                    <div>
+                    <div><button onclick="checkoutViaWhatsApp()" class="w-full py-3.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-2xl font-semibold shadow-md transition-all text-sm flex items-center justify-center gap-2">
+    <i class="fa-brands fa-whatsapp text-lg"></i> Order via WhatsApp
+</button>
                         <div class="flex items-center justify-between mb-1.5">
                             <label class="text-[11px] font-bold text-yarn uppercase tracking-wider flex items-center gap-1.5">
                                 <i class="fa-solid fa-gift text-festive"></i> Diwali Coupon
@@ -1246,19 +1248,51 @@
         }
 
         // Newsletter and Checkout mocks
-        function subscribeNewsletter() {
-            showToast("Thank you for joining our Diwali dispatch!");
-        }
+       // Replace with your 10-digit WhatsApp number with 91 country code (e.g., 919876543210)
+const STORE_WHATSAPP_NUMBER = "8839530751";
 
-        function checkout() {
-            if (cart.length === 0) return;
-            showToast("Order received! Connecting with @ayushi_collection_2019...");
-            setTimeout(() => {
-                cart = [];
-                updateCartUI();
-                toggleCart(false);
-            }, 1200);
-        }
+function checkoutViaWhatsApp() {
+    if (cart.length === 0) {
+        showToast("Your basket is empty!");
+        return;
+    }
+
+    // 1. Calculate pricing
+    const subtotal = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+    const discount = (appliedCoupon && appliedCoupon.code === 'AYU10' && subtotal >= 500) 
+        ? Math.round(subtotal * 0.10) 
+        : 0;
+    const finalTotal = Math.max(0, subtotal - discount);
+
+    // 2. Format cart items list
+    let itemList = "";
+    cart.forEach((item, index) => {
+        itemList += `${index + 1}. *${item.name}* (Qty: ${item.quantity}) - ₹${item.price * item.quantity}\n`;
+    });
+
+    // 3. Construct the festive message
+    let message = `🪔 *New Order Request - Ayushi Collection*\n\n`;
+    message += `Hello! I would like to place an order for:\n\n`;
+    message += itemList;
+    message += `\n------------------------------\n`;
+    message += `• *Subtotal:* ₹${subtotal}\n`;
+
+    if (discount > 0) {
+        message += `• *Diwali Discount (AYU10):* -₹${discount}\n`;
+    }
+
+    message += `• *Total Amount:* ₹${finalTotal}\n`;
+    message += `------------------------------\n\n`;
+    message += `Please confirm availability and share your UPI / QR code for payment. Thank you! ✨`;
+
+    // 4. Open WhatsApp using wa.me with URL-encoded message
+    const whatsappUrl = `https://wa.me/${STORE_WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+    
+    // Open in a new tab or trigger WhatsApp app on mobile
+    window.open(whatsappUrl, "_blank");
+
+    showToast("Opening WhatsApp to complete your order...");
+}
 
         // Notification Toast Handler
         let toastTimeout;
