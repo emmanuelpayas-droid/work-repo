@@ -63,11 +63,45 @@
 </head>
 <body class="font-sans bg-cream text-yarn min-h-screen flex flex-col selection:bg-terracotta selection:text-white">
 
-    <!-- Top Announcement Bar -->
-    <div class="bg-terracotta text-cream text-xs sm:text-sm font-medium py-2 px-4 text-center tracking-wide flex items-center justify-center gap-2">
-        <span>🧶 Free worldwide shipping on orders over $65</span>
-        <span class="opacity-60">•</span>
-        <span>Every loop hand-stitched with 100% organic cotton & merino yarn</span>
+    <!-- Top Red Festive Banner (Rotating Diwali Sale) -->
+    <div class="bg-gradient-to-r from-red-700 via-red-600 to-red-700 text-white text-xs sm:text-sm font-medium py-1 px-4 shadow-md relative z-50 border-b border-yellow-400/30 overflow-hidden">
+        <div class="max-w-7xl mx-auto relative flex items-center justify-center min-h-[40px] h-10">
+            <!-- Left Festive Tag (Positioned Absolute) -->
+            <div class="hidden xl:flex absolute left-0 items-center gap-2 text-xs font-bold tracking-wider uppercase bg-yellow-400/20 text-yellow-200 px-3 py-1 rounded-full border border-yellow-300/40 pointer-events-none">
+                <span class="text-base">🪔</span>
+                <span>Diwali Sale</span>
+            </div>
+
+            <!-- Messages Viewport -->
+            <div id="diwali-banner-viewport" class="overflow-hidden h-10 w-full max-w-4xl mx-auto px-4 relative">
+                <div id="diwali-banner-track" class="transition-transform duration-700 flex flex-col w-full" style="transform: translateY(0px);">
+                    <!-- Message 1 -->
+                    <div class="h-10 min-h-[40px] max-h-[40px] flex items-center justify-center shrink-0 w-full text-center leading-tight">
+                        <span class="inline-flex items-center justify-center gap-1.5 flex-wrap">
+                            🪔✨ <strong>Diwali Festive Sale Live!</strong> Celebrate with handcrafted crochet warmth
+                        </span>
+                    </div>
+                    <!-- Message 2 -->
+                    <div class="h-10 min-h-[40px] max-h-[40px] flex items-center justify-center shrink-0 w-full text-center leading-tight">
+                        <span class="inline-flex items-center justify-center gap-1.5 flex-wrap">
+                            🎁 Use coupon <button type="button" onclick="copyCouponCode('AYU10')" class="inline-flex items-center align-middle bg-yellow-300 hover:bg-white text-red-950 font-bold px-2 py-0.5 rounded font-mono text-xs transition-all shadow-sm gap-1 mx-1 cursor-pointer" title="Click to copy coupon code">AYU10 <i class="fa-regular fa-copy text-[10px]"></i></button> for <strong>10% OFF</strong> on orders of ₹500+
+                        </span>
+                    </div>
+                    <!-- Message 3 -->
+                    <div class="h-10 min-h-[40px] max-h-[40px] flex items-center justify-center shrink-0 w-full text-center leading-tight">
+                        <span class="inline-flex items-center justify-center gap-1.5 flex-wrap">
+                            🚚✨ <strong>Free Shipping across India</strong> on all festive orders over ₹499
+                        </span>
+                    </div>
+                    <!-- Message 4 -->
+                    <div class="h-10 min-h-[40px] max-h-[40px] flex items-center justify-center shrink-0 w-full text-center leading-tight">
+                        <span class="inline-flex items-center justify-center gap-1.5 flex-wrap">
+                            🪔 शुभ दीपावली विशेष: कूपन <button type="button" onclick="copyCouponCode('AYU10')" class="inline-flex items-center align-middle bg-yellow-300 hover:bg-white text-red-950 font-bold px-2 py-0.5 rounded font-mono text-xs transition-all shadow-sm gap-1 mx-1 cursor-pointer">AYU10</button> लगाएं और ₹500 पर पाएं 10% छूट!
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- Navigation Header -->
@@ -94,7 +128,7 @@
 
             <!-- Nav Action Buttons -->
             <div class="flex items-center gap-4">
-                <!-- Search Button (mock interactive) -->
+                <!-- Search Button -->
                 <button onclick="toggleSearch()" aria-label="Search" class="p-2.5 rounded-full hover:bg-cream-100 text-yarn hover:text-terracotta transition-colors">
                     <i class="fa-solid fa-magnifying-glass text-lg"></i>
                 </button>
@@ -133,7 +167,7 @@
                         Handcrafted crochet heirlooms, squishy plushies, and stylish everyday wearables created with slow, intentional artistry in small batches.
                     </p>
                     <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
-                        <a href="#catalog" class="w-full sm:w-auto px-8 py-3.5 bg-terracotta hover:bg-terracotta-dark text-white rounded-full font-medium shadow-md shadow-terracotta/20 transition-all transform hover:-translate-y-0.5 text-center">
+                        <a href="#catalog" class="w-full sm:w-auto px-8 py-3.5 bg-terracotta hover:bg-terracotta-dark text-white rounded-full font-medium shadow-md transition-all transform hover:-translate-y-0.5 text-center">
                             Explore Creations
                         </a>
                         <a href="#story" class="w-full sm:w-auto px-8 py-3.5 bg-cream-100 hover:bg-almond/60 text-yarn rounded-full font-medium border border-almond transition-all text-center">
@@ -245,63 +279,163 @@
             </div>
         </section>
 
-        <!-- Testimonials -->
-        <section id="reviews" class="py-16 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-2xl mx-auto mb-14">
-                <span class="text-xs uppercase font-bold tracking-widest text-terracotta">Community Joy</span>
-                <h2 class="font-serif text-3xl font-bold text-yarn mt-1">Loved by Conscious Keepers</h2>
+        <!-- Testimonials Carousel (Rotating in Sequence) -->
+        <section id="reviews" class="py-16 sm:py-24 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-10">
+                <span class="text-xs uppercase font-bold tracking-widest text-terracotta">Community Joy • ग्राहक अनुभव</span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-yarn mt-1">Loved by Conscious Keepers</h2>
+                <p class="text-cappuccino text-xs sm:text-sm mt-2">Real words from our handmade yarn family across India</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
-                <!-- Review 1 -->
-                <div class="bg-white p-6 sm:p-8 rounded-3xl border border-almond/50 shadow-sm flex flex-col justify-between">
-                    <div>
-                        <div class="flex text-amber-400 text-sm mb-4">
-                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                        </div>
-                        <p class="text-yarn text-sm leading-relaxed italic">"The Mossy Cardigan feels like an absolute warm embrace. The drape of the wool blend and the custom buttons are sheer perfection."</p>
+            <!-- Carousel Container -->
+            <div class="relative max-w-3xl mx-auto" id="testimonial-carousel">
+                <!-- Top Status Badge & Step Tracker -->
+                <div class="flex items-center justify-between px-2 mb-3">
+                    <span class="inline-flex items-center gap-1.5 text-[11px] font-semibold text-terracotta bg-terracotta/10 px-3 py-1 rounded-full border border-terracotta/20">
+                        <span class="w-2 h-2 rounded-full bg-terracotta animate-pulse"></span>
+                        Auto-rotating Reviews
+                    </span>
+                    <span class="text-xs font-semibold text-cappuccino font-mono" id="testimonial-counter">1 of 4</span>
+                </div>
+
+                <!-- Slider Viewport -->
+                <div class="overflow-hidden rounded-3xl relative">
+                    <!-- Linear Auto-rotation Progress Bar -->
+                    <div class="h-1 w-full bg-cream-100 overflow-hidden">
+                        <div id="testimonial-progress-bar" class="h-full bg-terracotta w-0"></div>
                     </div>
-                    <div class="flex items-center gap-3 mt-6 pt-4 border-t border-cream-100">
-                        <div class="w-9 h-9 rounded-full bg-almond flex items-center justify-center font-bold text-terracotta text-sm">EL</div>
-                        <div>
-                            <h4 class="text-xs font-bold text-yarn">Elena Lin</h4>
-                            <p class="text-[11px] text-cappuccino">Verified Buyer • Portland, OR</p>
+
+                    <div id="testimonial-track" class="flex transition-transform duration-700 ease-in-out w-[400%]" style="transform: translateX(0%);">
+                        <!-- Review 1 (Hindi) - Akshay Soni -->
+                        <div class="w-1/4 flex-shrink-0 px-2 sm:px-4">
+                            <div class="bg-white p-7 sm:p-10 rounded-3xl border border-almond/50 shadow-md flex flex-col justify-between">
+                                <div>
+                                    <div class="flex items-center justify-between mb-4">
+                                        <div class="flex text-amber-400 text-sm">
+                                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                        </div>
+                                        <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-sage-light text-sage-dark flex items-center gap-1">
+                                            <i class="fa-solid fa-circle-check text-[10px]"></i> Verified Buyer
+                                        </span>
+                                    </div>
+                                    <p class="text-yarn text-sm sm:text-base leading-relaxed font-medium">
+                                        "शुभ लाभ हैंगिंग का काम सच में बहुत ही खूबसूरत और फिनिशिंग वाला है! 🪔✨ मुख्य द्वार पर लगाते ही घर में एक अलग ही सकारात्मकता और उत्सव का माहौल बन गया। दिल से धन्यवाद आयुषी कलेक्शन! 💛"
+                                    </p>
+                                </div>
+                                <div class="flex items-center gap-3.5 mt-6 pt-5 border-t border-cream-100">
+                                    <div class="w-11 h-11 rounded-full bg-terracotta/15 text-terracotta font-bold text-sm flex items-center justify-center border border-terracotta/20">
+                                        AS
+                                    </div>
+                                    <div>
+                                        <h4 class="text-sm font-bold text-yarn">Akshay Soni</h4>
+                                        <p class="text-xs text-cappuccino">Verified Buyer • Indore, MP</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Review 2 (Hindi) - Simmi Jain -->
+                        <div class="w-1/4 flex-shrink-0 px-2 sm:px-4">
+                            <div class="bg-white p-7 sm:p-10 rounded-3xl border border-almond/50 shadow-md flex flex-col justify-between">
+                                <div>
+                                    <div class="flex items-center justify-between mb-4">
+                                        <div class="flex text-amber-400 text-sm">
+                                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                        </div>
+                                        <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-sage-light text-sage-dark flex items-center gap-1">
+                                            <i class="fa-solid fa-circle-check text-[10px]"></i> Verified Buyer
+                                        </span>
+                                    </div>
+                                    <p class="text-yarn text-sm sm:text-base leading-relaxed font-medium">
+                                        "मशरूम वाला ईयरबड कवर बहुत ही प्यारा और यूनिक है! 🍄🎧 वूल की क्वालिटी इतनी सॉफ्ट है और फिनिशिंग एकदम परफेक्ट। जब भी निकालती हूँ, सब पूछते हैं कहाँ से लिया! 🥰✨"
+                                    </p>
+                                </div>
+                                <div class="flex items-center gap-3.5 mt-6 pt-5 border-t border-cream-100">
+                                    <div class="w-11 h-11 rounded-full bg-sage-light text-sage-dark font-bold text-sm flex items-center justify-center border border-sage/20">
+                                        SJ
+                                    </div>
+                                    <div>
+                                        <h4 class="text-sm font-bold text-yarn">Simmi Jain</h4>
+                                        <p class="text-xs text-cappuccino">Verified Buyer • Jaipur, RJ</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Review 3 (Hindi) - Radhika Mehta -->
+                        <div class="w-1/4 flex-shrink-0 px-2 sm:px-4">
+                            <div class="bg-white p-7 sm:p-10 rounded-3xl border border-almond/50 shadow-md flex flex-col justify-between">
+                                <div>
+                                    <div class="flex items-center justify-between mb-4">
+                                        <div class="flex text-amber-400 text-sm">
+                                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                        </div>
+                                        <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-sage-light text-sage-dark flex items-center gap-1">
+                                            <i class="fa-solid fa-circle-check text-[10px]"></i> Verified Buyer
+                                        </span>
+                                    </div>
+                                    <p class="text-yarn text-sm sm:text-base leading-relaxed font-medium">
+                                        "फोटो फ्रेम कवर ने मेरी फैमिली फोटो को एकदम विंटेज और रॉयल लुक दे दिया! 🖼️🌸 हाथ की बुनाई और मोतियों का काम बेमिसाल है। हर छोटी डिटेल बहुत बारीकी से बनाई गई है! 💖👌"
+                                    </p>
+                                </div>
+                                <div class="flex items-center gap-3.5 mt-6 pt-5 border-t border-cream-100">
+                                    <div class="w-11 h-11 rounded-full bg-almond text-yarn font-bold text-sm flex items-center justify-center border border-almond/50">
+                                        RM
+                                    </div>
+                                    <div>
+                                        <h4 class="text-sm font-bold text-yarn">Radhika Mehta</h4>
+                                        <p class="text-xs text-cappuccino">Verified Buyer • Ahmedabad, GJ</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Review 4 (English) - Ayushi Chhabra -->
+                        <div class="w-1/4 flex-shrink-0 px-2 sm:px-4">
+                            <div class="bg-white p-7 sm:p-10 rounded-3xl border border-almond/50 shadow-md flex flex-col justify-between">
+                                <div>
+                                    <div class="flex items-center justify-between mb-4">
+                                        <div class="flex text-amber-400 text-sm">
+                                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                        </div>
+                                        <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-sage-light text-sage-dark flex items-center gap-1">
+                                            <i class="fa-solid fa-circle-check text-[10px]"></i> Verified Buyer
+                                        </span>
+                                    </div>
+                                    <p class="text-yarn text-sm sm:text-base leading-relaxed font-medium">
+                                        "The woolen spectacles case and cute fridge magnets are sheer perfection! 🍩✨ The craftsmanship is top-notch, stitches are sturdy, and the packaging was so thoughtfully done with love. Highly recommended! 🧶❤️"
+                                    </p>
+                                </div>
+                                <div class="flex items-center gap-3.5 mt-6 pt-5 border-t border-cream-100">
+                                    <div class="w-11 h-11 rounded-full bg-terracotta text-white font-bold text-sm flex items-center justify-center shadow-sm">
+                                        AC
+                                    </div>
+                                    <div>
+                                        <h4 class="text-sm font-bold text-yarn">Ayushi Chhabra</h4>
+                                        <p class="text-xs text-cappuccino">Verified Buyer • Delhi, NCR</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Review 2 -->
-                <div class="bg-white p-6 sm:p-8 rounded-3xl border border-almond/50 shadow-sm flex flex-col justify-between">
-                    <div>
-                        <div class="flex text-amber-400 text-sm mb-4">
-                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                        </div>
-                        <p class="text-yarn text-sm leading-relaxed italic">"Ordered the baby frog plushie for my niece's birthday. It arrived in lovely biodegradable paper with a handwritten note. So precious!"</p>
-                    </div>
-                    <div class="flex items-center gap-3 mt-6 pt-4 border-t border-cream-100">
-                        <div class="w-9 h-9 rounded-full bg-sage-light flex items-center justify-center font-bold text-sage-dark text-sm">MC</div>
-                        <div>
-                            <h4 class="text-xs font-bold text-yarn">Marcus Chen</h4>
-                            <p class="text-[11px] text-cappuccino">Verified Buyer • Austin, TX</p>
-                        </div>
-                    </div>
-                </div>
+                <!-- Navigation Controls -->
+                <div class="flex items-center justify-between mt-6">
+                    <button onclick="prevTestimonial(); resetTestimonialTimer();" aria-label="Previous review" class="w-10 h-10 rounded-full bg-white hover:bg-terracotta hover:text-white border border-almond/50 text-yarn flex items-center justify-center shadow-sm transition-colors">
+                        <i class="fa-solid fa-chevron-left text-xs"></i>
+                    </button>
 
-                <!-- Review 3 -->
-                <div class="bg-white p-6 sm:p-8 rounded-3xl border border-almond/50 shadow-sm flex flex-col justify-between">
-                    <div>
-                        <div class="flex text-amber-400 text-sm mb-4">
-                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                        </div>
-                        <p class="text-yarn text-sm leading-relaxed italic">"The checkered bucket hat gets me compliments everywhere I go. Sturdy stitches that hold their shape even after repeated wear."</p>
+                    <div class="flex items-center gap-2" id="testimonial-indicators">
+                        <button onclick="goToTestimonial(0)" aria-label="Go to slide 1" class="h-2 rounded-full transition-all duration-300 w-8 bg-terracotta shadow-sm"></button>
+                        <button onclick="goToTestimonial(1)" aria-label="Go to slide 2" class="h-2 rounded-full transition-all duration-300 w-2.5 bg-almond hover:bg-terracotta/50"></button>
+                        <button onclick="goToTestimonial(2)" aria-label="Go to slide 3" class="h-2 rounded-full transition-all duration-300 w-2.5 bg-almond hover:bg-terracotta/50"></button>
+                        <button onclick="goToTestimonial(3)" aria-label="Go to slide 4" class="h-2 rounded-full transition-all duration-300 w-2.5 bg-almond hover:bg-terracotta/50"></button>
                     </div>
-                    <div class="flex items-center gap-3 mt-6 pt-4 border-t border-cream-100">
-                        <div class="w-9 h-9 rounded-full bg-almond/80 flex items-center justify-center font-bold text-terracotta text-sm">SP</div>
-                        <div>
-                            <h4 class="text-xs font-bold text-yarn">Sophia Patel</h4>
-                            <p class="text-[11px] text-cappuccino">Verified Buyer • London, UK</p>
-                        </div>
-                    </div>
+
+                    <button onclick="nextTestimonial(); resetTestimonialTimer();" aria-label="Next review" class="w-10 h-10 rounded-full bg-white hover:bg-terracotta hover:text-white border border-almond/50 text-yarn flex items-center justify-center shadow-sm transition-colors">
+                        <i class="fa-solid fa-chevron-right text-xs"></i>
+                    </button>
                 </div>
             </div>
         </section>
@@ -381,7 +515,6 @@
 
     <!-- Shopping Cart Slide-Over Drawer -->
     <div id="cart-drawer" class="fixed inset-0 z-50 overflow-hidden pointer-events-none transition-opacity duration-300 opacity-0">
-        <!-- Backdrop -->
         <div id="cart-backdrop" onclick="toggleCart(false)" class="absolute inset-0 bg-yarn/40 backdrop-blur-xs transition-opacity"></div>
         
         <div class="fixed inset-y-0 right-0 max-w-full flex pl-10">
@@ -415,10 +548,35 @@
 
                 <!-- Cart Footer & Checkout -->
                 <div id="cart-footer" class="p-6 border-t border-almond/40 bg-cream-100 space-y-4">
-                    <div class="space-y-1.5 text-xs text-cappuccino">
+                    <!-- Coupon Input Box -->
+                    <div>
+                        <div class="flex items-center justify-between mb-1.5">
+                            <label class="text-[11px] font-bold text-yarn uppercase tracking-wider flex items-center gap-1.5">
+                                <i class="fa-solid fa-gift text-red-600"></i> Diwali Coupon
+                            </label>
+                            <button type="button" onclick="quickApplyAYU10()" class="text-[10px] text-red-600 hover:underline font-semibold">Try "AYU10"</button>
+                        </div>
+                        <div class="flex gap-2">
+                            <div class="relative flex-1">
+                                <i class="fa-solid fa-tag absolute left-3 top-2.5 text-cappuccino/60 text-xs"></i>
+                                <input id="coupon-input" type="text" placeholder="Coupon Code (e.g. AYU10)" class="w-full bg-white border border-almond/60 rounded-xl pl-8 pr-3 py-2 text-xs text-yarn placeholder:text-cappuccino/50 uppercase tracking-wide focus:border-red-600 outline-none">
+                            </div>
+                            <button onclick="applyCoupon()" class="px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-xl text-xs font-semibold shadow-sm transition-colors">Apply</button>
+                        </div>
+                        <div id="coupon-message" class="text-[11px] mt-1.5 hidden font-medium"></div>
+                    </div>
+
+                    <div class="space-y-1.5 text-xs text-cappuccino pt-2 border-t border-almond/30">
                         <div class="flex justify-between">
                             <span>Subtotal</span>
-                            <span id="cart-subtotal" class="font-bold text-yarn">$0.00</span>
+                            <span id="cart-subtotal" class="font-bold text-yarn">₹0</span>
+                        </div>
+                        <div id="cart-discount-row" class="hidden flex justify-between text-emerald-700 font-medium">
+                            <span class="flex items-center gap-1">
+                                <i class="fa-solid fa-tags text-xs"></i> 10% Diwali Discount (AYU10)
+                                <button onclick="removeCoupon()" class="text-xs text-red-500 hover:text-red-700 ml-1 font-bold" title="Remove coupon">✕</button>
+                            </span>
+                            <span id="cart-discount" class="font-bold">-₹0</span>
                         </div>
                         <div class="flex justify-between">
                             <span>Handmade Shipping</span>
@@ -427,7 +585,7 @@
                     </div>
                     <div class="pt-2 border-t border-almond/30 flex justify-between items-baseline">
                         <span class="font-serif font-bold text-base text-yarn">Total</span>
-                        <span id="cart-total" class="font-bold text-xl text-terracotta">$0.00</span>
+                        <span id="cart-total" class="font-bold text-xl text-terracotta">₹0</span>
                     </div>
                     <button onclick="checkout()" class="w-full py-3.5 bg-terracotta hover:bg-terracotta-dark text-white rounded-2xl font-medium shadow-md transition-all text-sm flex items-center justify-center gap-2">
                         <i class="fa-solid fa-lock text-xs"></i> Proceed to Checkout
@@ -453,7 +611,7 @@
                         <h3 id="modal-title" class="font-serif text-2xl font-bold text-yarn"></h3>
                         <p id="modal-price" class="text-xl font-bold text-terracotta"></p>
                         
-                        <!-- Options container for pack sizes (e.g. Set of 2 & Set of 6) -->
+                        <!-- Options container for pack sizes -->
                         <div id="modal-options-container" class="hidden">
                             <label class="text-xs font-semibold text-yarn block mb-1.5">Select Option / Set Size:</label>
                             <div id="modal-options" class="flex flex-wrap gap-2"></div>
@@ -492,22 +650,22 @@
                 name: "Shubh Labh Hanging (Set of 2 & 6)",
                 category: "Home Decor",
                 pack: "Set of 2 & 6 Available",
-                price: 18.00,
+                price: 250,
                 rating: 5.0,
                 reviews: 48,
                 image: "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=700&q=80",
                 desc: "Auspicious handcrafted crochet Shubh Labh hanging adorned with festive vibrant colors, golden zari accents, pearl beads, and soft yarn tassels. Available in Set of 2 (main doors) or Set of 6 (complete home entrance).",
                 fiber: "100% Cotton Yarn, Golden Zari & Pearls",
                 options: [
-                    { name: "Set of 2", price: 18.00 },
-                    { name: "Set of 6", price: 45.00 }
+                    { name: "Set of 2", price: 250 },
+                    { name: "Set of 6", price: 700 }
                 ]
             },
             {
                 id: 2,
                 name: "Woolen Glasses Cover",
                 category: "Accessories",
-                price: 14.00,
+                price: 300,
                 rating: 4.9,
                 reviews: 36,
                 image: "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&w=700&q=80",
@@ -518,7 +676,7 @@
                 id: 3,
                 name: "Woolen Payal (Crochet Anklet)",
                 category: "Accessories",
-                price: 12.00,
+                price: 250,
                 rating: 4.8,
                 reviews: 29,
                 image: "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?auto=format&fit=crop&w=700&q=80",
@@ -529,33 +687,33 @@
                 id: 4,
                 name: "Crochet Earbud Cover",
                 category: "Accessories",
-                price: 10.00,
+                price: 250,
                 rating: 4.9,
                 reviews: 54,
-                image: "https://images.unsplash.com/photo-1576871337632-b9aef4c17ab9?auto=format&fit=crop&w=700&q=80",
-                desc: "Handcrafted snug crochet case designed to safeguard wireless earbuds and AirPods. Includes bottom charging cut-out and an anti-drop strap loop.",
+                image: "images/crochet-earbud-cover.jpg",
+                desc: "Charming mushroom-themed crochet drawstring pouch designed to protect wireless earbuds and AirPods, finished with sweet green leaf charms.",
                 fiber: "100% Milk Cotton Yarn"
             },
             {
                 id: 5,
                 name: "Crochet Photo Frame Cover",
                 category: "Home Decor",
-                price: 19.00,
+                price: 350,
                 rating: 4.9,
                 reviews: 22,
-                image: "https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=700&q=80",
-                desc: "Vintage decorative crochet lace frame slipcover that wraps tabletop picture frames in delicate floral scalloped borders and warm artisan texture.",
-                fiber: "Combed Mercerized Cotton"
+                image: "images/crochet-photo-frame-cover.jpg",
+                desc: "Handmade crochet floral frame slipcover adorned with yellow and ivory blossom rosettes with elegant pearl center accents. Perfect for tabletop frames.",
+                fiber: "100% Cotton Yarn & Pearl Accents"
             },
             {
                 id: 6,
                 name: "Crochet Fridge Magnet",
                 category: "Home Decor",
-                price: 8.00,
+                price: 200,
                 rating: 5.0,
                 reviews: 63,
-                image: "https://images.unsplash.com/photo-1598460880291-c4237191df99?auto=format&fit=crop&w=700&q=80",
-                desc: "Delightful mini hand-crocheted botanical fridge magnet with embedded heavy-duty neodymium backing. Adds cheerful handmade warmth to any metal surface.",
+                image: "images/crochet-fridge-magnet.jpg",
+                desc: "Adorable hand-crocheted breakfast treats magnets featuring smiling sunny-side egg and sprinkled chocolate donut with embedded strong magnets.",
                 fiber: "100% Cotton Yarn & Neodymium Magnet"
             }
         ];
@@ -564,12 +722,191 @@
         let cart = [];
         let activeCategory = 'all';
         let activeQuickViewOption = null;
+        let appliedCoupon = null;
+
+        // Top Red Diwali Banner Auto-Rotation
+        let currentDiwaliBanner = 0;
+        const totalDiwaliBanners = 4;
+        let diwaliBannerTimer = null;
+        const DIWALI_BANNER_INTERVAL = 3000;
+
+        function updateDiwaliBanner() {
+            const track = document.getElementById('diwali-banner-track');
+            const viewport = document.getElementById('diwali-banner-viewport');
+            if (!track || !viewport) return;
+            const firstItem = track.querySelector('div');
+            const h = firstItem ? firstItem.offsetHeight : 40;
+            track.style.transform = `translateY(-${currentDiwaliBanner * h}px)`;
+        }
+
+        function nextDiwaliBanner() {
+            currentDiwaliBanner = (currentDiwaliBanner + 1) % totalDiwaliBanners;
+            updateDiwaliBanner();
+        }
+
+        function prevDiwaliBanner() {
+            currentDiwaliBanner = (currentDiwaliBanner - 1 + totalDiwaliBanners) % totalDiwaliBanners;
+            updateDiwaliBanner();
+        }
+
+        function startDiwaliBannerTimer() {
+            if (diwaliBannerTimer) clearInterval(diwaliBannerTimer);
+            diwaliBannerTimer = setInterval(nextDiwaliBanner, DIWALI_BANNER_INTERVAL);
+        }
+
+        function copyCouponCode(code) {
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(code).then(() => {
+                    showToast(`Coupon "${code}" copied! Apply in basket for 10% off`);
+                }).catch(() => {
+                    showToast(`Use coupon "${code}" in your basket!`);
+                });
+            } else {
+                showToast(`Use coupon "${code}" in your basket!`);
+            }
+            const input = document.getElementById('coupon-input');
+            if (input) input.value = code;
+        }
+
+        function quickApplyAYU10() {
+            const input = document.getElementById('coupon-input');
+            if (input) {
+                input.value = 'AYU10';
+                applyCoupon();
+            }
+        }
+
+        function applyCoupon() {
+            const input = document.getElementById('coupon-input');
+            const msg = document.getElementById('coupon-message');
+            if (!input || !msg) return;
+
+            const code = input.value.trim().toUpperCase();
+            if (!code) {
+                msg.textContent = "Please enter a coupon code.";
+                msg.className = "text-[11px] mt-1.5 font-medium text-red-600 block";
+                return;
+            }
+
+            const currentSubtotal = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+
+            if (code === 'AYU10') {
+                if (currentSubtotal === 0) {
+                    msg.textContent = "Add products to your basket before applying coupon.";
+                    msg.className = "text-[11px] mt-1.5 font-medium text-amber-700 block";
+                    appliedCoupon = null;
+                } else if (currentSubtotal < 500) {
+                    const diff = 500 - currentSubtotal;
+                    msg.innerHTML = `⚠️ Coupon <strong>AYU10</strong> requires minimum order of ₹500. Add ₹${diff} more!`;
+                    msg.className = "text-[11px] mt-1.5 font-medium text-amber-700 block";
+                    appliedCoupon = null;
+                } else {
+                    appliedCoupon = { code: 'AYU10', percent: 10, minOrder: 500 };
+                    const discountAmt = Math.round(currentSubtotal * 0.10);
+                    msg.innerHTML = `🎉 Coupon <strong>AYU10</strong> applied! Saved ₹${discountAmt} (10% OFF)`;
+                    msg.className = "text-[11px] mt-1.5 font-medium text-emerald-700 block";
+                    showToast("🎉 10% Diwali Discount applied!");
+                }
+            } else {
+                appliedCoupon = null;
+                msg.textContent = "Invalid coupon code. Try 'AYU10'.";
+                msg.className = "text-[11px] mt-1.5 font-medium text-red-600 block";
+            }
+            updateCartUI();
+        }
+
+        function removeCoupon() {
+            appliedCoupon = null;
+            const input = document.getElementById('coupon-input');
+            const msg = document.getElementById('coupon-message');
+            if (input) input.value = '';
+            if (msg) {
+                msg.textContent = '';
+                msg.className = "hidden";
+            }
+            updateCartUI();
+            showToast("Coupon removed.");
+        }
+
+        // Testimonials Sequential Auto-Rotating Carousel
+        let currentTestimonial = 0;
+        const totalTestimonials = 4;
+        let testimonialTimer = null;
+        const TESTIMONIAL_INTERVAL = 3200;
+
+        function updateTestimonialSlider() {
+            const track = document.getElementById('testimonial-track');
+            if (!track) return;
+            track.style.transform = `translateX(-${currentTestimonial * 25}%)`;
+
+            // Update indicators
+            const indicators = document.querySelectorAll('#testimonial-indicators button');
+            indicators.forEach((btn, idx) => {
+                if (idx === currentTestimonial) {
+                    btn.className = "h-2 rounded-full transition-all duration-300 w-8 bg-terracotta shadow-sm";
+                } else {
+                    btn.className = "h-2 rounded-full transition-all duration-300 w-2.5 bg-almond hover:bg-terracotta/50";
+                }
+            });
+
+            // Update counter badge
+            const counter = document.getElementById('testimonial-counter');
+            if (counter) {
+                counter.textContent = `${currentTestimonial + 1} of ${totalTestimonials}`;
+            }
+
+            // Animate progress bar
+            const bar = document.getElementById('testimonial-progress-bar');
+            if (bar) {
+                bar.style.transition = 'none';
+                bar.style.width = '0%';
+                setTimeout(() => {
+                    bar.style.transition = `width ${TESTIMONIAL_INTERVAL}ms linear`;
+                    bar.style.width = '100%';
+                }, 20);
+            }
+        }
+
+        function nextTestimonial() {
+            currentTestimonial = (currentTestimonial + 1) % totalTestimonials;
+            updateTestimonialSlider();
+        }
+
+        function prevTestimonial() {
+            currentTestimonial = (currentTestimonial - 1 + totalTestimonials) % totalTestimonials;
+            updateTestimonialSlider();
+        }
+
+        function goToTestimonial(idx) {
+            currentTestimonial = idx;
+            updateTestimonialSlider();
+            resetTestimonialTimer();
+        }
+
+        function resetTestimonialTimer() {
+            if (testimonialTimer) clearInterval(testimonialTimer);
+            testimonialTimer = setInterval(nextTestimonial, TESTIMONIAL_INTERVAL);
+        }
+
+        function startTestimonialTimer() {
+            resetTestimonialTimer();
+            updateTestimonialSlider();
+        }
 
         // Initialize application on page load
-        window.onload = function() {
+        function initApp() {
             renderProducts(products);
             updateCartUI();
-        };
+            startTestimonialTimer();
+            startDiwaliBannerTimer();
+            window.addEventListener('resize', updateDiwaliBanner);
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initApp);
+        } else {
+            initApp();
+        }
 
         // Render product cards
         function renderProducts(items) {
@@ -596,7 +933,6 @@
                         <span class="absolute top-3 right-3 bg-terracotta text-white text-[10px] font-semibold px-2.5 py-0.5 rounded-full shadow-sm">
                             ${product.pack}
                         </span>` : ''}
-                        <!-- Quick View Button -->
                         <button onclick="openQuickView(${product.id})" class="absolute bottom-3 right-3 bg-white/90 hover:bg-white text-yarn text-xs font-medium px-3 py-1.5 rounded-full shadow-md backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity">
                             <i class="fa-regular fa-eye mr-1"></i> Quick View
                         </button>
@@ -616,8 +952,8 @@
                         </div>
 
                         <div class="mt-4 pt-3 border-t border-cream-100 flex items-center justify-between">
-                            <span class="font-bold text-lg text-terracotta font-serif">$${product.price.toFixed(2)}</span>
-                            <button onclick="addToCart(${product.id})" class="px-4 py-2 bg-cream-100 hover:bg-terracotta hover:text-white text-yarn rounded-full text-xs font-semibold transition-colors flex items-center gap-1.5 shadow-xs">
+                            <span class="font-bold text-lg text-terracotta font-serif">₹${product.price}</span>
+                            <button onclick="addToCart(${product.id})" class="px-4 py-2 bg-cream-100 hover:bg-terracotta hover:text-white text-yarn rounded-full text-xs font-semibold transition-colors flex items-center gap-1.5 shadow-sm">
                                 <i class="fa-solid fa-plus text-[10px]"></i> Add
                             </button>
                         </div>
@@ -631,7 +967,6 @@
         function filterCategory(cat) {
             activeCategory = cat;
             
-            // Highlight buttons
             document.querySelectorAll('.cat-btn').forEach(btn => {
                 if (btn.getAttribute('data-category').toLowerCase() === cat.toLowerCase()) {
                     btn.className = "cat-btn active px-5 py-2 rounded-full text-sm font-medium transition-all bg-terracotta text-white shadow-sm";
@@ -667,7 +1002,7 @@
             const query = document.getElementById('search-input').value.toLowerCase().trim();
             const filtered = products.filter(p => 
                 p.name.toLowerCase().includes(query) || 
-                p.desc.toLowerCase().includes(query) ||
+                p.desc.toLowerCase().includes(query) || 
                 p.category.toLowerCase().includes(query)
             );
             renderProducts(filtered);
@@ -692,27 +1027,27 @@
                 optContainer.classList.remove('hidden');
                 optList.innerHTML = '';
                 activeQuickViewOption = p.options[0];
-                document.getElementById('modal-price').textContent = `$${activeQuickViewOption.price.toFixed(2)}`;
+                document.getElementById('modal-price').textContent = `₹${activeQuickViewOption.price}`;
 
                 p.options.forEach((opt, idx) => {
                     const btn = document.createElement('button');
                     btn.type = 'button';
-                    btn.className = `px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all border ${idx === 0 ? 'bg-terracotta text-white border-terracotta shadow-xs' : 'bg-white text-yarn border-almond/60 hover:border-terracotta'}`;
-                    btn.textContent = `${opt.name} — $${opt.price.toFixed(2)}`;
+                    btn.className = `px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all border ${idx === 0 ? 'bg-terracotta text-white border-terracotta shadow-sm' : 'bg-white text-yarn border-almond/60 hover:border-terracotta'}`;
+                    btn.textContent = `${opt.name} — ₹${opt.price}`;
                     btn.onclick = () => {
                         activeQuickViewOption = opt;
-                        document.getElementById('modal-price').textContent = `$${opt.price.toFixed(2)}`;
+                        document.getElementById('modal-price').textContent = `₹${opt.price}`;
                         Array.from(optList.children).forEach(b => {
                             b.className = "px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all border bg-white text-yarn border-almond/60 hover:border-terracotta";
                         });
-                        btn.className = "px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all border bg-terracotta text-white border-terracotta shadow-xs";
+                        btn.className = "px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all border bg-terracotta text-white border-terracotta shadow-sm";
                     };
                     optList.appendChild(btn);
                 });
             } else {
                 activeQuickViewOption = null;
                 optContainer.classList.add('hidden');
-                document.getElementById('modal-price').textContent = `$${p.price.toFixed(2)}`;
+                document.getElementById('modal-price').textContent = `₹${p.price}`;
             }
 
             const addBtn = document.getElementById('modal-add-btn');
@@ -835,14 +1170,14 @@
                 subtotal += itemTotal;
 
                 const itemDiv = document.createElement('div');
-                itemDiv.className = "flex gap-4 p-3 bg-white rounded-2xl border border-almond/40 shadow-xs";
+                itemDiv.className = "flex gap-4 p-3 bg-white rounded-2xl border border-almond/40 shadow-sm";
                 itemDiv.innerHTML = `
                     <img src="${item.image}" alt="${item.name}" class="w-16 h-16 rounded-xl object-cover">
                     <div class="flex-1 flex flex-col justify-between">
                         <div class="flex justify-between items-start">
                             <div>
                                 <h4 class="font-serif font-bold text-xs text-yarn">${item.name}</h4>
-                                <span class="text-[11px] text-terracotta font-semibold">$${item.price.toFixed(2)}</span>
+                                <span class="text-[11px] text-terracotta font-semibold">₹${item.price}</span>
                             </div>
                             <button onclick="removeFromCart('${item.cartKey}')" class="text-cappuccino/60 hover:text-terracotta text-xs">
                                 <i class="fa-solid fa-trash-can"></i>
@@ -852,15 +1187,39 @@
                             <button onclick="updateQuantity('${item.cartKey}', -1)" class="w-6 h-6 rounded-md bg-cream-100 flex items-center justify-center text-xs text-yarn hover:bg-almond/50 font-bold">-</button>
                             <span class="text-xs font-semibold px-2">${item.quantity}</span>
                             <button onclick="updateQuantity('${item.cartKey}', 1)" class="w-6 h-6 rounded-md bg-cream-100 flex items-center justify-center text-xs text-yarn hover:bg-almond/50 font-bold">+</button>
-                            <span class="text-xs font-bold text-yarn ml-auto">$${itemTotal.toFixed(2)}</span>
+                            <span class="text-xs font-bold text-yarn ml-auto">₹${itemTotal}</span>
                         </div>
                     </div>
                 `;
                 container.appendChild(itemDiv);
             });
 
-            subtotalEl.textContent = `$${subtotal.toFixed(2)}`;
-            totalEl.textContent = `$${subtotal.toFixed(2)}`;
+            // Calculate Coupon Discount
+            let discount = 0;
+            const discountRow = document.getElementById('cart-discount-row');
+            const discountEl = document.getElementById('cart-discount');
+            const couponMsg = document.getElementById('coupon-message');
+
+            if (appliedCoupon && appliedCoupon.code === 'AYU10') {
+                if (subtotal >= appliedCoupon.minOrder) {
+                    discount = Math.round(subtotal * (appliedCoupon.percent / 100));
+                    if (discountRow) discountRow.classList.remove('hidden');
+                    if (discountEl) discountEl.textContent = `-₹${discount}`;
+                } else {
+                    appliedCoupon = null;
+                    if (discountRow) discountRow.classList.add('hidden');
+                    if (couponMsg && subtotal > 0) {
+                        couponMsg.innerHTML = `⚠️ Coupon <strong>AYU10</strong> requires min ₹500. Add ₹${500 - subtotal} more.`;
+                        couponMsg.className = "text-[11px] mt-1.5 font-medium text-amber-700 block";
+                    }
+                }
+            } else {
+                if (discountRow) discountRow.classList.add('hidden');
+            }
+
+            const finalTotal = Math.max(0, subtotal - discount);
+            subtotalEl.textContent = `₹${subtotal}`;
+            totalEl.textContent = `₹${finalTotal}`;
         }
 
         // Newsletter and Checkout mocks
